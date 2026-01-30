@@ -4,7 +4,7 @@ Projeto one-page leve e pronto para publicação (Netlify/GitHub Pages). Sem bac
 
 ## Estrutura
 ```
-/barbearia-imperio/
+/barbearia-GSAdev/
   index.html
   /assets/
     /img/
@@ -19,18 +19,18 @@ Projeto one-page leve e pronto para publicação (Netlify/GitHub Pages). Sem bac
 ```
 
 ## Como trocar textos rapidamente
-- Edite `barbearia-imperio/index.html`.
+- Edite `barbearia-GSAdev/index.html`.
 - Cada seção está claramente separada por comentários (Hero, Serviços, Equipe, FAQ etc.).
 - Textos principais estão em headings e parágrafos — basta substituir.
 
 ## Como mudar cores e estilo
-- Edite `barbearia-imperio/css/style.css`.
+- Edite `barbearia-GSAdev/css/style.css`.
 - As cores estão no bloco `:root` (variáveis CSS):
   - `--bg`, `--gold`, `--text`, `--muted` etc.
 - A tipografia é definida no `body` e headings (Playfair Display).
 
 ## Como trocar fotos (otimização)
-Substitua as imagens em `barbearia-imperio/assets/img/` mantendo os mesmos nomes:
+Substitua as imagens em `barbearia-GSAdev/assets/img/` mantendo os mesmos nomes:
 - `hero.jpg`
 - `gallery-1.jpg` a `gallery-6.jpg`
 - `barber-1.jpg` a `barber-3.jpg`
@@ -58,14 +58,14 @@ Recomendações:
   ```
 
 ## Como editar a mensagem do WhatsApp
-- Em `barbearia-imperio/js/main.js`, altere a função:
+- Em `barbearia-GSAdev/js/main.js`, altere a função:
   - `buildWhatsAppLink({ service, name, day, time, notes })`
 - Essa função monta o texto enviado para o WhatsApp.
 
 ## Como publicar grátis no Netlify
 1. Acesse o Netlify e faça login.
 2. Clique em **Add new site** → **Deploy manually**.
-3. Arraste a pasta `barbearia-imperio` para o Netlify.
+3. Arraste a pasta `barbearia-GSAdev` para o Netlify.
 4. Pronto: o link estará online.
 5. (Opcional) Configure domínio próprio nas configurações do site.
 
