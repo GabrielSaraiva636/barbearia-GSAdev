@@ -1,3 +1,7 @@
 [build]
-  publish = "barbearia-GSAdev"
+  publish = "."
+<<<<<<< HEAD
   command = ""
+=======
+  command = ""
+>>>>>>> c77e818 (Add Netlify publish config)
