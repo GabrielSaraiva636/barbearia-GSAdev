@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barbearia GSAdev | Corte e Barba Premium</title>
+    <meta
+      name="description"
+      content="Agende seu corte e barba na Barbearia GSAdev. Atendimento premium, profissionais experientes e ambiente confortável. Clique e agende no WhatsApp."
+    />
+    <meta name="theme-color" content="#0b0b0f" />
+    <link rel="canonical" href="https://seu-dominio.com/" />
+
+    <meta property="og:title" content="Barbearia GSAdev | Corte e Barba Premium" />
+    <meta
+      property="og:description"
+      content="Agende seu corte e barba na Barbearia GSAdev. Atendimento premium, profissionais experientes e ambiente confortável."
+    />
+    <meta property="og:image" content="assets/img/hero.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <link rel="icon" href="assets/img/favicon.png" type="image/png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BarberShop",
+        "name": "Barbearia GSAdev",
+        "image": "https://seu-dominio.com/assets/img/hero.jpg",
+        "telephone": "+55 51 99625-6910",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Lebes de Charqueadas",
+          "addressLocality": "Charqueadas",
+          "addressRegion": "RS",
+          "addressCountry": "BR"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "20:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Sunday"],
+            "opens": "10:00",
+            "closes": "16:00"
+          }
+        ],
+        "url": "https://seu-dominio.com/",
+        "sameAs": ["https://instagram.com/barbeariagsadev"]
+      }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-whatsapp="+55 51 99625-6910" data-utm="">
+    <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
+
+    <!-- Top Bar -->
+    <div class="top-bar">⭐ Atendimento premium • 💳 Pix/Cartão • 📍 Centro</div>
+
+    <!-- Header / Nav -->
+    <header class="site-header">
+      <nav class="nav container" aria-label="Navegação principal">
+        <a class="logo" href="#inicio" aria-label="Barbearia GSAdev">
+          <span>GSA</span>dev
+        </a>
+
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Abrir menu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-menu" id="navMenu">
+          <a href="#inicio">Início</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#antes-depois">Antes/Depois</a>
+          <a href="#equipe">Equipe</a>
+          <a href="#avaliacoes">Avaliações</a>
+          <a href="#localizacao">Localização</a>
+          <a href="#contato">Contato</a>
+          <button
+            class="btn btn-sm btn-outline"
+            data-wa
+            data-service="Agendamento na Barbearia GSAdev"
+            aria-label="Agendar pelo WhatsApp"
+            type="button"
+          >
+            Agendar
+          </button>
+        </div>
+      </nav>
+      <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-content reveal">
+            <div class="hero-badges">
+              <span>⭐ Atendimento premium</span>
+              <span>📍 Centro</span>
+              <span>⏱️ 30 min</span>
+            </div>
+            <h1 id="hero-title">Barbearia GSAdev</h1>
+            <p class="hero-sub">
+              Corte na régua. Barba desenhada. Experiência premium.
+            </p>
+            <div class="hero-cta">
+              <button
+                class="btn btn-primary"
+                data-wa
+                data-service="Agendamento na Barbearia GSAdev"
+                aria-label="Agendar no WhatsApp"
+                type="button"
+              >
+                Agendar no WhatsApp
+              </button>
+              <a class="btn btn-outline" href="#servicos">Ver preços</a>
+            </div>
+            <p class="hero-note">Atendimento por ordem e agendamento.</p>
+          </div>
+          <div class="hero-card reveal">
+            <div class="info-block">
+              <h3>Endereço</h3>
+              <p>Lebes de Charqueadas</p>
+              <p>Charqueadas - RS</p>
+            </div>
+            <div class="info-block">
+              <h3>Horário</h3>
+              <p>Seg–Sáb: 09h–20h</p>
+              <p>Dom: 10h–16h</p>
+            </div>
+            <div class="info-block">
+              <h3>Contato rápido</h3>
+              <p>WhatsApp: <span data-wa-display></span></p>
+              <p>
+                Instagram:
+                <a
+                  href="https://instagram.com/barbeariagsadev"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  @barbeariagsadev
+                </a>
+              </p>
+            </div>
+            <button
+              class="btn btn-sm btn-primary"
+              data-wa
+              data-service="Agendamento na Barbearia GSAdev"
+              aria-label="Quero agendar agora"
+              type="button"
+            >
+              Quero agendar agora
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Serviços -->
+      <section class="section" id="servicos">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Serviços & Preços</h2>
+            <p>Escolha o serviço e agende direto no WhatsApp.</p>
+          </div>
+          <div class="grid services-grid">
+            <article class="card service-card reveal">
+              <h3>Corte Masculino</h3>
+              <p>Degradê, social e navalhado.</p>
+              <div class="service-meta">
+                <span class="price">a partir de R$ 35</span>
+                <span class="time">30 min</span>
+              </div>
+              <button
+                class="btn btn-sm btn-primary"
+                data-wa
+                data-service="Corte Masculino"
+                aria-label="Agendar Corte Masculino"
+                type="button"
+              >
+                Agendar este serviço
+              </button>
+            </article>
+
+            <article class="card service-card reveal">
+              <h3>Barba</h3>
+              <p>Navalha + acabamento premium.</p>
+              <div class="service-meta">
+                <span class="price">a partir de R$ 30</span>
+                <span class="time">25 min</span>
+              </div>
+              <button
+                class="btn btn-sm btn-primary"
+                data-wa
+                data-service="Barba"
+                aria-label="Agendar Barba"
+                type="button"
+              >
+                Agendar este serviço
+              </button>
+            </article>
+
+            <article class="card service-card reveal">
+              <h3>Combo Corte + Barba</h3>
+              <p>O clássico que resolve.</p>
+              <div class="service-meta">
+                <span class="price">a partir de R$ 59</span>
+                <span class="time">55 min</span>
+              </div>
+              <button
+                class="btn btn-sm btn-primary"
+                data-wa
+                data-service="Combo Corte + Barba"
+                aria-label="Agendar Combo Corte + Barba"
+                type="button"
+              >
+                Agendar este serviço
+              </button>
+            </article>
+
+            <article class="card service-card reveal">
+              <h3>Sobrancelha</h3>
+              <p>Alinhamento discreto.</p>
+              <div class="service-meta">
+                <span class="price">a partir de R$ 15</span>
+                <span class="time">10 min</span>
+              </div>
+              <button
+                class="btn btn-sm btn-primary"
+                data-wa
+                data-service="Sobrancelha"
+                aria-label="Agendar Sobrancelha"
+                type="button"
+              >
+                Agendar este serviço
+              </button>
+            </article>
+
+            <article class="card service-card reveal">
+              <h3>Infantil</h3>
+              <p>Paciência e cuidado.</p>
+              <div class="service-meta">
+                <span class="price">a partir de R$ 30</span>
+                <span class="time">30 min</span>
+              </div>
+              <button
+                class="btn btn-sm btn-primary"
+                data-wa
+                data-service="Infantil"
+                aria-label="Agendar Infantil"
+                type="button"
+              >
+                Agendar este serviço
+              </button>
+            </article>
+
+            <article class="card service-card reveal">
+              <h3>Pigmentação</h3>
+              <p>Preenchimento e definição.</p>
+              <div class="service-meta">
+                <span class="price">a partir de R$ 80</span>
+                <span class="time">40 min</span>
+              </div>
+              <button
+                class="btn btn-sm btn-primary"
+                data-wa
+                data-service="Pigmentação"
+                aria-label="Agendar Pigmentação"
+                type="button"
+              >
+                Agendar este serviço
+              </button>
+            </article>
+          </div>
+          <p class="payments">Formas de pagamento: Pix, cartão e dinheiro.</p>
+        </div>
+      </section>
+
+      <!-- Diferenciais -->
+      <section class="section" id="diferenciais">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Diferenciais</h2>
+            <p>Um padrão premium em cada detalhe.</p>
+          </div>
+          <div class="grid diff-grid">
+            <article class="card reveal">
+              <h3>Ambiente premium</h3>
+              <p>Ar-condicionado, música e clima exclusivo.</p>
+            </article>
+            <article class="card reveal">
+              <h3>Profissionais experientes</h3>
+              <p>Equipe especializada em degradê e navalha.</p>
+            </article>
+            <article class="card reveal">
+              <h3>Higienização e segurança</h3>
+              <p>Procedimentos rigorosos em cada atendimento.</p>
+            </article>
+            <article class="card reveal">
+              <h3>Produtos de qualidade</h3>
+              <p>Marcas premium para resultados impecáveis.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Antes e Depois -->
+      <section class="section" id="antes-depois">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Antes e Depois</h2>
+            <p>Transformações reais da Barbearia GSAdev.</p>
+          </div>
+          <div class="grid gallery-grid">
+            <img
+              class="gallery-img reveal"
+              src="assets/img/gallery-1.jpg"
+              alt="Antes e depois 1"
+              loading="lazy"
+            />
+            <img
+              class="gallery-img reveal"
+              src="assets/img/gallery-2.jpg"
+              alt="Antes e depois 2"
+              loading="lazy"
+            />
+            <img
+              class="gallery-img reveal"
+              src="assets/img/gallery-3.jpg"
+              alt="Antes e depois 3"
+              loading="lazy"
+            />
+            <img
+              class="gallery-img reveal"
+              src="assets/img/gallery-4.jpg"
+              alt="Antes e depois 4"
+              loading="lazy"
+            />
+            <img
+              class="gallery-img reveal"
+              src="assets/img/gallery-5.jpg"
+              alt="Antes e depois 5"
+              loading="lazy"
+            />
+            <img
+              class="gallery-img reveal"
+              src="assets/img/gallery-6.jpg"
+              alt="Antes e depois 6"
+              loading="lazy"
+            />
+          </div>
+          <div class="section-cta">
+            <a
+              class="btn btn-outline"
+              href="https://instagram.com/barbeariagsadev"
+              target="_blank"
+              rel="noopener"
+            >
+              Ver mais no Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Equipe -->
+      <section class="section" id="equipe">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Equipe</h2>
+            <p>Barbeiros especialistas no seu estilo.</p>
+          </div>
+          <div class="grid team-grid">
+            <article class="card team-card reveal">
+              <img
+                src="assets/img/barber-1.jpg"
+                alt="Barbeiro João"
+                loading="lazy"
+              />
+              <div class="team-info">
+                <h3>João</h3>
+                <span>Degradê & freestyle</span>
+                <p>
+                  Precisão nos detalhes, cortes modernos e finalizações
+                  marcantes.
+                </p>
+              </div>
+            </article>
+            <article class="card team-card reveal">
+              <img
+                src="assets/img/barber-2.jpg"
+                alt="Barbeiro Lucas"
+                loading="lazy"
+              />
+              <div class="team-info">
+                <h3>Lucas</h3>
+                <span>Barba & navalha</span>
+                <p>
+                  Especialista em barba desenhada com acabamento premium.
+                </p>
+              </div>
+            </article>
+            <article class="card team-card reveal">
+              <img
+                src="assets/img/barber-3.jpg"
+                alt="Barbeiro Renato"
+                loading="lazy"
+              />
+              <div class="team-info">
+                <h3>Renato</h3>
+                <span>Social & acabamento</span>
+                <p>
+                  Cortes clássicos com toque moderno e alinhamento perfeito.
+                </p>
+              </div>
+            </article>
+          </div>
+          <div class="section-cta">
+            <button
+              class="btn btn-primary"
+              data-wa
+              data-service="Quero escolher um barbeiro"
+              aria-label="Escolher barbeiro no WhatsApp"
+              type="button"
+            >
+              Escolher barbeiro no WhatsApp
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Oferta da Semana -->
+      <section class="section offer" id="oferta">
+        <div class="container offer-inner reveal">
+          <div>
+            <h2>Oferta da Semana</h2>
+            <p class="offer-text">Combo Corte + Barba por R$ 49,90</p>
+            <p class="offer-note">Válido até domingo</p>
+          </div>
+          <div class="offer-cta">
+            <div class="countdown" data-countdown aria-live="polite">
+              <div>
+                <span data-countdown-part="hours">00</span>
+                <small>horas</small>
+              </div>
+              <div>
+                <span data-countdown-part="minutes">00</span>
+                <small>min</small>
+              </div>
+              <div>
+                <span data-countdown-part="seconds">00</span>
+                <small>seg</small>
+              </div>
+            </div>
+            <button
+              class="btn btn-primary"
+              data-wa
+              data-service="Oferta da Semana: Combo Corte + Barba"
+              aria-label="Quero essa oferta"
+              type="button"
+            >
+              Quero essa oferta
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Avaliações -->
+      <section class="section" id="avaliacoes">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Avaliações</h2>
+            <p>Prova social de quem já viveu a experiência GSAdev.</p>
+          </div>
+          <div class="grid reviews-grid">
+            <article class="card review-card reveal">
+              <div class="stars">★★★★★</div>
+              <h3>Matheus</h3>
+              <p>Atendimento absurdo, corte impecável.</p>
+            </article>
+            <article class="card review-card reveal">
+              <div class="stars">★★★★★</div>
+              <h3>Bruno</h3>
+              <p>Barba na navalha ficou perfeita.</p>
+            </article>
+            <article class="card review-card reveal">
+              <div class="stars">★★★★★</div>
+              <h3>Carlos</h3>
+              <p>Ambiente premium e pontualidade.</p>
+            </article>
+            <article class="card review-card reveal">
+              <div class="stars">★★★★★</div>
+              <h3>Diego</h3>
+              <p>Melhor degradê da cidade.</p>
+            </article>
+            <article class="card review-card reveal">
+              <div class="stars">★★★★★</div>
+              <h3>Rafael</h3>
+              <p>Preço justo e qualidade alta.</p>
+            </article>
+            <article class="card review-card reveal">
+              <div class="stars">★★★★★</div>
+              <h3>Thiago</h3>
+              <p>Volto sempre. Recomendo.</p>
+            </article>
+          </div>
+          <div class="grid review-imgs">
+            <img
+              src="assets/img/review-1.jpg"
+              alt="Review 1"
+              loading="lazy"
+            />
+            <img
+              src="assets/img/review-2.jpg"
+              alt="Review 2"
+              loading="lazy"
+            />
+            <img
+              src="assets/img/review-3.jpg"
+              alt="Review 3"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>FAQ</h2>
+            <p>Tire suas dúvidas antes de agendar.</p>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item reveal">
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls="faq-1"
+                type="button"
+              >
+                Precisa agendar?
+              </button>
+              <div class="faq-answer" id="faq-1" hidden>
+                Recomendamos agendar para garantir horário. Também atendemos
+                por ordem, conforme disponibilidade.
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls="faq-2"
+                type="button"
+              >
+                Vocês aceitam Pix e cartão?
+              </button>
+              <div class="faq-answer" id="faq-2" hidden>
+                Sim, Pix, cartão e dinheiro.
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls="faq-3"
+                type="button"
+              >
+                Fazem corte infantil?
+              </button>
+              <div class="faq-answer" id="faq-3" hidden>
+                Sim, com cuidado e paciência.
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls="faq-4"
+                type="button"
+              >
+                Quanto tempo demora?
+              </button>
+              <div class="faq-answer" id="faq-4" hidden>
+                Em média 30–60 min, dependendo do serviço.
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls="faq-5"
+                type="button"
+              >
+                Onde fica?
+              </button>
+              <div class="faq-answer" id="faq-5" hidden>
+                Lebes de Charqueadas, Charqueadas - RS.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Localização -->
+      <section class="section" id="localizacao">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Localização</h2>
+            <p>Chegue rápido e com conforto.</p>
+          </div>
+          <div class="location-grid">
+            <div class="map-card reveal">
+              <iframe
+                title="Mapa da Barbearia GSAdev"
+                src="https://maps.google.com/maps?q=Lebes+de+Charqueadas+RS&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div class="card location-info reveal">
+              <h3>Endereço</h3>
+              <p>Lebes de Charqueadas</p>
+              <p>Charqueadas - RS</p>
+              <h3>Horário</h3>
+              <p>Seg–Sáb: 09h–20h | Dom: 10h–16h</p>
+              <a
+                class="btn btn-outline"
+                href="https://maps.google.com/?q=Lebes+de+Charqueadas+RS"
+                target="_blank"
+                rel="noopener"
+              >
+                Como chegar
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contato / Agendamento -->
+      <section class="section" id="contato">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Contato e Agendamento</h2>
+            <p>Fale com a gente e reserve seu horário.</p>
+          </div>
+          <div class="grid contact-grid">
+            <a
+              class="card contact-card reveal"
+              href="#"
+              data-wa
+              data-service="Agendamento na Barbearia GSAdev"
+              aria-label="Agendar pelo WhatsApp"
+            >
+              <h3>WhatsApp</h3>
+              <p class="contact-highlight" data-wa-display></p>
+              <span>Responderemos o mais rápido possível</span>
+            </a>
+            <a
+              class="card contact-card reveal"
+              href="https://instagram.com/barbeariagsadev"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram da Barbearia"
+            >
+              <h3>Instagram</h3>
+              <p class="contact-highlight">@barbeariagsadev</p>
+              <span>Veja cortes e novidades</span>
+            </a>
+            <a
+              class="card contact-card reveal"
+              href="#"
+              data-tel-link
+              aria-label="Ligar para a barbearia"
+            >
+              <h3>Telefone</h3>
+              <p class="contact-highlight" data-wa-display></p>
+              <span>Atendimento rápido</span>
+            </a>
+          </div>
+
+          <div class="card form-card reveal">
+            <form id="contactForm">
+              <div class="form-grid">
+                <label>
+                  Nome
+                  <input type="text" name="name" placeholder="Seu nome" />
+                </label>
+                <label>
+                  Serviço
+                  <select name="service" id="service">
+                    <option value="">Selecione</option>
+                    <option value="Corte Masculino">Corte Masculino</option>
+                    <option value="Barba">Barba</option>
+                    <option value="Combo Corte + Barba">Combo Corte + Barba</option>
+                    <option value="Sobrancelha">Sobrancelha</option>
+                    <option value="Infantil">Infantil</option>
+                    <option value="Pigmentação">Pigmentação</option>
+                  </select>
+                </label>
+                <label>
+                  Dia preferido
+                  <input type="text" name="day" placeholder="Ex: Sexta" />
+                </label>
+                <label>
+                  Horário preferido
+                  <input type="time" name="time" />
+                </label>
+              </div>
+              <label>
+                Observações
+                <textarea
+                  name="notes"
+                  rows="3"
+                  placeholder="Ex: quero degradê baixo"
+                ></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit">
+                Enviar para WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Política / Termos -->
+      <section class="section legal" id="politica">
+        <div class="container">
+          <div class="section-header">
+            <h2>Política e Termos</h2>
+            <p>
+              Este site não realiza agendamentos automáticos. As informações
+              enviadas vão diretamente para o WhatsApp da barbearia. Sujeito à
+              disponibilidade.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="logo footer-logo"><span>GSA</span>dev</div>
+          <p>Barbearia GSAdev — experiência premium em cada detalhe.</p>
+        </div>
+        <div>
+          <h4>Links rápidos</h4>
+          <a href="#servicos">Serviços</a>
+          <a href="#equipe">Equipe</a>
+          <a href="#avaliacoes">Avaliações</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <div>
+          <h4>Informações</h4>
+          <a href="#politica">Política/Termos</a>
+          <a href="#localizacao">Localização</a>
+          <button
+            class="btn btn-sm btn-outline"
+            data-wa
+            data-service="Agendamento na Barbearia GSAdev"
+            type="button"
+          >
+            Agendar agora
+          </button>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>
+          © <span data-current-year>2026</span> Barbearia GSAdev. Todos os
+          direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- WhatsApp flutuante -->
+    <a
+      class="whatsapp-float"
+      href="#"
+      data-wa
+      data-service="Agendamento na Barbearia GSAdev"
+      aria-label="Falar no WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          d="M16.02 3.2C9.2 3.2 3.66 8.74 3.66 15.56c0 2.45.73 4.82 2.11 6.85L4 28.8l6.55-1.72c1.95 1.07 4.15 1.63 6.47 1.63 6.82 0 12.36-5.54 12.36-12.36S22.84 3.2 16.02 3.2zm6.97 17.49c-.29.82-1.69 1.56-2.33 1.64-.6.08-1.36.11-2.2-.14-.51-.16-1.18-.38-2.05-.74-3.6-1.5-5.94-5.15-6.12-5.38-.18-.24-1.46-1.95-1.46-3.72 0-1.77.92-2.64 1.25-3 .33-.36.73-.45.98-.45.25 0 .49 0 .71.01.23.01.54-.09.85.65.3.74 1.02 2.58 1.11 2.77.09.19.15.41.03.65-.12.24-.18.39-.36.6-.18.21-.38.46-.54.62-.18.18-.37.37-.16.73.21.36.93 1.53 2 2.48 1.37 1.23 2.52 1.61 2.88 1.79.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.8-.18.33.12 2.08.98 2.44 1.16.36.18.6.27.69.42.09.15.09.86-.2 1.68z"
+        />
+      </svg>
+    </a>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
+

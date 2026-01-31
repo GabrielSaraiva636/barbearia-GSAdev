@@ -1,0 +1,3 @@
+[build]
+  publish = "barbearia-GSAdev"
+  command = ""
