@@ -1,7 +1,4 @@
 [build]
   publish = "."
-<<<<<<< HEAD
   command = ""
-=======
-  command = ""
->>>>>>> c77e818 (Add Netlify publish config)
+
