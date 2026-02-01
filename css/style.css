@@ -1020,10 +1020,11 @@ textarea {
   }
 
   .booking-modal {
-    width: calc(100vw - 24px);
-    max-height: 90vh;
-    padding: 16px 16px 14px;
-    border-radius: 16px;
+    width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+    padding: 14px 14px 12px;
+    border-radius: 0;
   }
 
   .modal-header {
@@ -1039,45 +1040,45 @@ textarea {
   }
 
   .modal-header h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .modal-header p {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
   }
 
   .modal-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 8px;
   }
 
   .service-select-panel {
-    position: static;
-    max-height: 180px;
-    box-shadow: none;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    position: absolute;
+    max-height: 160px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 8px;
   }
 
   .service-option {
-    padding: 10px 10px;
-    gap: 8px;
+    padding: 8px 10px;
+    gap: 6px;
   }
 
   .service-title {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .service-meta {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
 
   .booking-modal input,
   .booking-modal select,
   .booking-modal textarea,
   .service-select-trigger {
-    height: 44px;
-    font-size: 0.95rem;
+    height: 40px;
+    font-size: 0.9rem;
   }
 
   .booking-modal textarea {
@@ -1085,15 +1086,15 @@ textarea {
   }
 
   .field-with-icon .field-icon {
-    top: 40px;
+    top: 36px;
   }
 
   .modal-notes {
-    padding: 10px 12px;
+    padding: 8px 10px;
   }
 
   .char-count {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .modal-actions {
@@ -1103,6 +1104,15 @@ textarea {
 
   .modal-actions .btn {
     min-width: 0;
+  }
+
+  .modal-actions .btn {
+    padding: 10px 16px;
+  }
+
+  .booking-modal small,
+  .schedule-hint {
+    display: none;
   }
 }
 
