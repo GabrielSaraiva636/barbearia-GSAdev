@@ -25,11 +25,28 @@
     }
   });
 
-  function buildWhatsAppLink({ service, name, day, time, notes }) {
+  function formatDate(dateValue) {
+    if (!dateValue) return "";
+    const parts = String(dateValue).split("-");
+    if (parts.length !== 3) return dateValue;
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+  }
+
+  function buildWhatsAppLink({
+    service,
+    name,
+    date,
+    time,
+    professional,
+    payment,
+    notes,
+  }) {
     const safeName = (name || "").trim();
     const safeService = (service || "").trim();
-    const safeDay = (day || "").trim();
+    const safeDate = formatDate(date);
     const safeTime = (time || "").trim();
+    const safeProfessional = (professional || "").trim();
+    const safePayment = (payment || "").trim();
     const safeNotes = (notes || "").trim();
 
     const parts = [];
@@ -39,23 +56,26 @@
       parts.push("Olá!");
     }
 
-    let agendaLine = "Quero agendar";
+    let agendaLine = "Quero agendar um horário";
     if (safeService) {
-      agendaLine += ` ${safeService}`;
-    } else {
-      agendaLine += " um horário";
+      agendaLine += ` para ${safeService}`;
     }
-
-    if (safeDay) {
-      agendaLine += ` para ${safeDay}`;
+    if (safeDate) {
+      agendaLine += ` no dia ${safeDate}`;
     }
-
     if (safeTime) {
       agendaLine += ` às ${safeTime}`;
     }
-
     agendaLine += ".";
     parts.push(agendaLine);
+
+    if (safeProfessional) {
+      parts.push(`Profissional: ${safeProfessional}.`);
+    }
+
+    if (safePayment) {
+      parts.push(`Pagamento: ${safePayment}.`);
+    }
 
     if (safeNotes) {
       parts.push(safeNotes);
@@ -75,50 +95,211 @@
     window.open(url, "_blank", "noopener");
   }
 
-  const serviceSelect = document.getElementById("service");
+  const bookingModal = document.getElementById("bookingModal");
+  const modalBackdrop = document.getElementById("modalBackdrop");
+  const bookingForm = document.getElementById("bookingForm");
+  const bookingDate = bookingForm
+    ? bookingForm.querySelector('input[name="date"]')
+    : null;
+  const bookingTime = bookingForm
+    ? bookingForm.querySelector('input[name="time"]')
+    : null;
+  const scheduleHint = bookingForm
+    ? bookingForm.querySelector("[data-schedule-hint]")
+    : null;
+  const serviceSelect = document.querySelector("[data-service-select]");
+  const serviceTrigger = serviceSelect
+    ? serviceSelect.querySelector(".service-select-trigger")
+    : null;
+  const servicePanel = serviceSelect
+    ? serviceSelect.querySelector(".service-select-panel")
+    : null;
+  const serviceHidden = serviceSelect
+    ? serviceSelect.querySelector('input[name="services"]')
+    : null;
+  const serviceError = serviceSelect
+    ? serviceSelect.querySelector(".service-error")
+    : null;
   const serviceOptions = serviceSelect
-    ? Array.from(serviceSelect.options).map((opt) => opt.value)
+    ? Array.from(serviceSelect.querySelectorAll(".service-option input"))
     : [];
+  const bookingNotes = bookingForm
+    ? bookingForm.querySelector('textarea[name="notes"]')
+    : null;
+  const charCount = bookingForm
+    ? bookingForm.querySelector("[data-char-count]")
+    : null;
 
-  document.querySelectorAll("[data-service]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const service = btn.dataset.service || "";
-      if (serviceSelect && serviceOptions.includes(service)) {
-        serviceSelect.value = service;
+  const openModal = (service) => {
+    if (!bookingModal || !modalBackdrop) return;
+    if (serviceOptions.length) {
+      serviceOptions.forEach((opt) => {
+        opt.checked = false;
+      });
+      if (service) {
+        const match = serviceOptions.find((opt) => opt.value === service);
+        if (match) match.checked = true;
       }
-    });
-  });
-
-  document.querySelectorAll("[data-wa]").forEach((btn) => {
-    if (btn.tagName === "A") {
-      btn.setAttribute(
-        "href",
-        waDigits ? buildWhatsAppLink({ service: btn.dataset.service }) : "#"
-      );
-      btn.setAttribute("target", "_blank");
-      btn.setAttribute("rel", "noopener");
+      updateServiceSummary();
     }
+    bookingModal.classList.add("is-open");
+    modalBackdrop.classList.add("is-open");
+    bookingModal.setAttribute("aria-hidden", "false");
+    modalBackdrop.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    updateSchedule();
+  };
+
+  const closeModal = () => {
+    if (!bookingModal || !modalBackdrop) return;
+    bookingModal.classList.remove("is-open");
+    modalBackdrop.classList.remove("is-open");
+    bookingModal.setAttribute("aria-hidden", "true");
+    modalBackdrop.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  };
+
+  document.querySelectorAll("[data-appointment]").forEach((btn) => {
     btn.addEventListener("click", (event) => {
       event.preventDefault();
-      const service = btn.dataset.service || "";
-      openWhatsApp({ service });
+      openModal(btn.dataset.service || "");
     });
   });
 
-  const form = document.getElementById("contactForm");
-  if (form) {
-    form.addEventListener("submit", (event) => {
+  document.querySelectorAll("[data-modal-close]").forEach((btn) => {
+    btn.addEventListener("click", closeModal);
+  });
+
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener("click", closeModal);
+  }
+
+  const schedule = {
+    0: null, // domingo fechado
+    1: { open: "09:00", close: "20:00" },
+    2: { open: "09:00", close: "20:00" },
+    3: { open: "09:00", close: "20:00" },
+    4: { open: "09:00", close: "20:00" },
+    5: { open: "09:00", close: "20:00" },
+    6: { open: "09:00", close: "18:00" },
+  };
+
+  const updateSchedule = () => {
+    if (!bookingDate || !bookingTime) return;
+    const value = bookingDate.value;
+    if (!value) {
+      bookingTime.removeAttribute("min");
+      bookingTime.removeAttribute("max");
+      bookingTime.disabled = true;
+      if (scheduleHint) scheduleHint.textContent = "Selecione a data.";
+      return;
+    }
+    const day = new Date(`${value}T00:00:00`).getDay();
+    const slot = schedule[day];
+    if (!slot) {
+      bookingTime.value = "";
+      bookingTime.disabled = true;
+      if (scheduleHint) {
+        scheduleHint.textContent = "Sem atendimento neste dia.";
+      }
+      return;
+    }
+    bookingTime.disabled = false;
+    bookingTime.min = slot.open;
+    bookingTime.max = slot.close;
+    if (scheduleHint) {
+      scheduleHint.textContent = `Atendimento: ${slot.open}–${slot.close}`;
+    }
+  };
+
+  const closeServicePanel = () => {
+    if (!servicePanel || !serviceTrigger) return;
+    servicePanel.classList.remove("is-open");
+    serviceTrigger.setAttribute("aria-expanded", "false");
+  };
+
+  const updateServiceSummary = () => {
+    if (!serviceOptions.length || !serviceHidden || !serviceTrigger) return;
+    const selected = serviceOptions.filter((opt) => opt.checked);
+    const labels = selected.map((opt) => opt.value);
+    serviceHidden.value = labels.join(", ");
+    serviceTrigger.textContent =
+      labels.length > 0
+        ? labels.join(", ")
+        : "Selecione um ou mais serviços";
+    if (serviceError) serviceError.textContent = "";
+  };
+
+  if (serviceTrigger && servicePanel) {
+    serviceTrigger.addEventListener("click", () => {
+      const isOpen = servicePanel.classList.contains("is-open");
+      servicePanel.classList.toggle("is-open", !isOpen);
+      serviceTrigger.setAttribute("aria-expanded", String(!isOpen));
+    });
+
+    serviceOptions.forEach((opt) => {
+      opt.addEventListener("change", updateServiceSummary);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!serviceSelect) return;
+      if (!serviceSelect.contains(event.target)) {
+        closeServicePanel();
+      }
+    });
+  }
+
+  if (bookingNotes && charCount) {
+    const updateCount = () => {
+      charCount.textContent = `${bookingNotes.value.length}/255`;
+    };
+    bookingNotes.addEventListener("input", updateCount);
+    updateCount();
+  }
+
+  if (bookingForm) {
+    bookingForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      const data = new FormData(form);
+      const data = new FormData(bookingForm);
+      const selectedServices = serviceOptions
+        .filter((opt) => opt.checked)
+        .map((opt) => opt.value);
+      if (!selectedServices.length) {
+        if (serviceError) {
+          serviceError.textContent = "Selecione pelo menos um serviço.";
+        }
+        return;
+      }
+      if (bookingTime && bookingTime.disabled) {
+        if (scheduleHint) {
+          scheduleHint.textContent =
+            "Escolha uma data com atendimento para continuar.";
+        }
+        return;
+      }
       const payload = {
-        name: data.get("name"),
-        service: data.get("service"),
-        day: data.get("day"),
+        service: selectedServices.join(", "),
+        date: data.get("date"),
         time: data.get("time"),
+        professional: data.get("professional"),
+        payment: data.get("payment"),
         notes: data.get("notes"),
       };
       openWhatsApp(payload);
+      bookingForm.reset();
+      serviceOptions.forEach((opt) => {
+        opt.checked = false;
+      });
+      updateServiceSummary();
+      if (charCount) charCount.textContent = "0/255";
+      updateSchedule();
+      closeModal();
     });
+  }
+
+  if (bookingDate) {
+    bookingDate.addEventListener("change", updateSchedule);
+    bookingDate.addEventListener("input", updateSchedule);
   }
 
   const navToggle = document.getElementById("navToggle");
@@ -163,6 +344,7 @@
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeMenu();
+      closeModal();
     }
   });
 

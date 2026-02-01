@@ -99,7 +99,7 @@
 
         <div class="nav-menu" id="navMenu">
           <a href="#inicio">Início</a>
-          <a href="#servicos">Serviços</a>
+          <a href="#diferenciais">Diferenciais</a>
           <a href="#antes-depois">Antes/Depois</a>
           <a href="#equipe">Equipe</a>
           <a href="#avaliacoes">Avaliações</a>
@@ -107,9 +107,8 @@
           <a href="#contato">Contato</a>
           <button
             class="btn btn-sm btn-outline"
-            data-wa
-            data-service="Agendamento na Barbearia GSAdev"
-            aria-label="Agendar pelo WhatsApp"
+            data-appointment
+            aria-label="Agendar horário"
             type="button"
           >
             Agendar
@@ -136,14 +135,13 @@
             <div class="hero-cta">
               <button
                 class="btn btn-primary"
-                data-wa
-                data-service="Agendamento na Barbearia GSAdev"
-                aria-label="Agendar no WhatsApp"
+                data-appointment
+                aria-label="Agendar horário"
                 type="button"
               >
-                Agendar no WhatsApp
+                Agendar horário
               </button>
-              <a class="btn btn-outline" href="#servicos">Ver preços</a>
+              <a class="btn btn-outline" href="#diferenciais">Ver diferenciais</a>
             </div>
             <p class="hero-note">Atendimento por ordem e agendamento.</p>
           </div>
@@ -174,134 +172,13 @@
             </div>
             <button
               class="btn btn-sm btn-primary"
-              data-wa
-              data-service="Agendamento na Barbearia GSAdev"
+              data-appointment
               aria-label="Quero agendar agora"
               type="button"
             >
               Quero agendar agora
             </button>
           </div>
-        </div>
-      </section>
-
-      <!-- Serviços -->
-      <section class="section" id="servicos">
-        <div class="container">
-          <div class="section-header reveal">
-            <h2>Serviços & Preços</h2>
-            <p>Escolha o serviço e agende direto no WhatsApp.</p>
-          </div>
-          <div class="grid services-grid">
-            <article class="card service-card reveal">
-              <h3>Corte Masculino</h3>
-              <p>Degradê, social e navalhado.</p>
-              <div class="service-meta">
-                <span class="price">a partir de R$ 35</span>
-                <span class="time">30 min</span>
-              </div>
-              <button
-                class="btn btn-sm btn-primary"
-                data-wa
-                data-service="Corte Masculino"
-                aria-label="Agendar Corte Masculino"
-                type="button"
-              >
-                Agendar este serviço
-              </button>
-            </article>
-
-            <article class="card service-card reveal">
-              <h3>Barba</h3>
-              <p>Navalha + acabamento premium.</p>
-              <div class="service-meta">
-                <span class="price">a partir de R$ 30</span>
-                <span class="time">25 min</span>
-              </div>
-              <button
-                class="btn btn-sm btn-primary"
-                data-wa
-                data-service="Barba"
-                aria-label="Agendar Barba"
-                type="button"
-              >
-                Agendar este serviço
-              </button>
-            </article>
-
-            <article class="card service-card reveal">
-              <h3>Combo Corte + Barba</h3>
-              <p>O clássico que resolve.</p>
-              <div class="service-meta">
-                <span class="price">a partir de R$ 59</span>
-                <span class="time">55 min</span>
-              </div>
-              <button
-                class="btn btn-sm btn-primary"
-                data-wa
-                data-service="Combo Corte + Barba"
-                aria-label="Agendar Combo Corte + Barba"
-                type="button"
-              >
-                Agendar este serviço
-              </button>
-            </article>
-
-            <article class="card service-card reveal">
-              <h3>Sobrancelha</h3>
-              <p>Alinhamento discreto.</p>
-              <div class="service-meta">
-                <span class="price">a partir de R$ 15</span>
-                <span class="time">10 min</span>
-              </div>
-              <button
-                class="btn btn-sm btn-primary"
-                data-wa
-                data-service="Sobrancelha"
-                aria-label="Agendar Sobrancelha"
-                type="button"
-              >
-                Agendar este serviço
-              </button>
-            </article>
-
-            <article class="card service-card reveal">
-              <h3>Infantil</h3>
-              <p>Paciência e cuidado.</p>
-              <div class="service-meta">
-                <span class="price">a partir de R$ 30</span>
-                <span class="time">30 min</span>
-              </div>
-              <button
-                class="btn btn-sm btn-primary"
-                data-wa
-                data-service="Infantil"
-                aria-label="Agendar Infantil"
-                type="button"
-              >
-                Agendar este serviço
-              </button>
-            </article>
-
-            <article class="card service-card reveal">
-              <h3>Pigmentação</h3>
-              <p>Preenchimento e definição.</p>
-              <div class="service-meta">
-                <span class="price">a partir de R$ 80</span>
-                <span class="time">40 min</span>
-              </div>
-              <button
-                class="btn btn-sm btn-primary"
-                data-wa
-                data-service="Pigmentação"
-                aria-label="Agendar Pigmentação"
-                type="button"
-              >
-                Agendar este serviço
-              </button>
-            </article>
-          </div>
-          <p class="payments">Formas de pagamento: Pix, cartão e dinheiro.</p>
         </div>
       </section>
 
@@ -446,12 +323,11 @@
           <div class="section-cta">
             <button
               class="btn btn-primary"
-              data-wa
-              data-service="Quero escolher um barbeiro"
-              aria-label="Escolher barbeiro no WhatsApp"
+              data-appointment
+              aria-label="Escolher barbeiro"
               type="button"
             >
-              Escolher barbeiro no WhatsApp
+              Escolher barbeiro
             </button>
           </div>
         </div>
@@ -482,8 +358,8 @@
             </div>
             <button
               class="btn btn-primary"
-              data-wa
-              data-service="Oferta da Semana: Combo Corte + Barba"
+              data-appointment
+              data-service="Combo Corte + Barba"
               aria-label="Quero essa oferta"
               type="button"
             >
@@ -676,9 +552,8 @@
             <a
               class="card contact-card reveal"
               href="#"
-              data-wa
-              data-service="Agendamento na Barbearia GSAdev"
-              aria-label="Agendar pelo WhatsApp"
+              data-appointment
+              aria-label="Agendar horário"
             >
               <h3>WhatsApp</h3>
               <p class="contact-highlight" data-wa-display></p>
@@ -708,45 +583,16 @@
           </div>
 
           <div class="card form-card reveal">
-            <form id="contactForm">
-              <div class="form-grid">
-                <label>
-                  Nome
-                  <input type="text" name="name" placeholder="Seu nome" />
-                </label>
-                <label>
-                  Serviço
-                  <select name="service" id="service">
-                    <option value="">Selecione</option>
-                    <option value="Corte Masculino">Corte Masculino</option>
-                    <option value="Barba">Barba</option>
-                    <option value="Combo Corte + Barba">Combo Corte + Barba</option>
-                    <option value="Sobrancelha">Sobrancelha</option>
-                    <option value="Infantil">Infantil</option>
-                    <option value="Pigmentação">Pigmentação</option>
-                  </select>
-                </label>
-                <label>
-                  Dia preferido
-                  <input type="text" name="day" placeholder="Ex: Sexta" />
-                </label>
-                <label>
-                  Horário preferido
-                  <input type="time" name="time" />
-                </label>
-              </div>
-              <label>
-                Observações
-                <textarea
-                  name="notes"
-                  rows="3"
-                  placeholder="Ex: quero degradê baixo"
-                ></textarea>
-              </label>
-              <button class="btn btn-primary" type="submit">
-                Enviar para WhatsApp
+            <div class="form-cta">
+              <h3>Agende em segundos</h3>
+              <p>
+                Escolha serviço, profissional, data e horário. A confirmação é
+                feita diretamente no WhatsApp.
+              </p>
+              <button class="btn btn-primary" data-appointment type="button">
+                Abrir agendamento
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </section>
@@ -766,6 +612,149 @@
       </section>
     </main>
 
+    <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"></div>
+    <div
+      class="booking-modal"
+      id="bookingModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="bookingTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-header">
+        <div>
+          <h2 id="bookingTitle">Agendar horário</h2>
+          <p>Preencha os dados e confirme no WhatsApp.</p>
+        </div>
+        <button
+          class="modal-close"
+          type="button"
+          aria-label="Fechar modal"
+          data-modal-close
+        >
+          ×
+        </button>
+      </div>
+      <form id="bookingForm">
+        <div class="modal-grid">
+          <label>
+            Serviços <span class="required">*</span>
+            <div class="service-select" data-service-select>
+              <button
+                class="service-select-trigger"
+                type="button"
+                aria-expanded="false"
+              >
+                Selecione um ou mais serviços
+              </button>
+              <div class="service-select-panel" role="listbox">
+                <label class="service-option">
+                  <input type="checkbox" value="Corte masculino" />
+                  <span class="service-title">Corte masculino</span>
+                  <span class="service-meta">30 min • R$ 40</span>
+                </label>
+                <label class="service-option">
+                  <input type="checkbox" value="Barba" />
+                  <span class="service-title">Barba</span>
+                  <span class="service-meta">30 min • R$ 35</span>
+                </label>
+                <label class="service-option">
+                  <input type="checkbox" value="Cabelo e barba" />
+                  <span class="service-title">Cabelo e barba</span>
+                  <span class="service-meta">60 min • R$ 60</span>
+                </label>
+                <label class="service-option">
+                  <input type="checkbox" value="Corte e sobrancelha" />
+                  <span class="service-title">Corte e sobrancelha</span>
+                  <span class="service-meta">30 min • R$ 45</span>
+                </label>
+                <label class="service-option">
+                  <input type="checkbox" value="Corte infantil" />
+                  <span class="service-title">Corte infantil</span>
+                  <span class="service-meta">30 min • R$ 40</span>
+                </label>
+              </div>
+              <small>Você pode selecionar mais de um serviço.</small>
+              <input type="hidden" name="services" />
+              <span class="service-error" aria-live="polite"></span>
+            </div>
+          </label>
+          <label class="field-with-icon">
+            Profissional <span class="required">*</span>
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.866 0-7 3.134-7 7h14c0-3.866-3.134-7-7-7z"
+                />
+              </svg>
+            </span>
+            <select id="bookingProfessional" name="professional" required>
+              <option value="">Selecione</option>
+              <option value="Arthur Lima">Arthur Lima</option>
+              <option value="João Silva">João Silva</option>
+              <option value="Marcos Lima">Marcos Lima</option>
+            </select>
+          </label>
+          <label class="field-with-icon">
+            Data <span class="required">*</span>
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 2v2H5a2 2 0 0 0-2 2v2h18V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm14 8H3v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8z"
+                />
+              </svg>
+            </span>
+            <input type="date" name="date" required />
+          </label>
+          <label class="field-with-icon">
+            Horário <span class="required">*</span>
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm1 5h-2v6l5 3 1-1.732-4-2.268V7z"
+                />
+              </svg>
+            </span>
+            <input type="time" name="time" required />
+            <small class="schedule-hint" data-schedule-hint></small>
+          </label>
+          <label class="field-with-icon">
+            Forma de pagamento <span class="required">*</span>
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2H3V6zm0 4h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8zm4 5h6v2H7v-2z"
+                />
+              </svg>
+            </span>
+            <select id="bookingPayment" name="payment" required>
+              <option value="">Selecione</option>
+              <option value="Pix">Pix</option>
+              <option value="Cartão">Cartão</option>
+              <option value="Dinheiro">Dinheiro</option>
+            </select>
+            <small>O pagamento será feito na barbearia.</small>
+          </label>
+        </div>
+        <label class="modal-notes">
+          Informações complementares (opcional)
+          <textarea
+            name="notes"
+            rows="3"
+            maxlength="255"
+            placeholder="Observações..."
+          ></textarea>
+          <span class="char-count" data-char-count>0/255</span>
+        </label>
+        <div class="modal-actions">
+          <button class="btn btn-outline" type="button" data-modal-close>
+            Cancelar
+          </button>
+          <button class="btn btn-primary" type="submit">Confirmar</button>
+        </div>
+      </form>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="container footer-grid">
@@ -775,7 +764,7 @@
         </div>
         <div>
           <h4>Links rápidos</h4>
-          <a href="#servicos">Serviços</a>
+          <a href="#diferenciais">Diferenciais</a>
           <a href="#equipe">Equipe</a>
           <a href="#avaliacoes">Avaliações</a>
           <a href="#contato">Contato</a>
@@ -786,8 +775,7 @@
           <a href="#localizacao">Localização</a>
           <button
             class="btn btn-sm btn-outline"
-            data-wa
-            data-service="Agendamento na Barbearia GSAdev"
+            data-appointment
             type="button"
           >
             Agendar agora
@@ -806,8 +794,7 @@
     <a
       class="whatsapp-float"
       href="#"
-      data-wa
-      data-service="Agendamento na Barbearia GSAdev"
+      data-appointment
       aria-label="Falar no WhatsApp"
     >
       <svg viewBox="0 0 32 32" aria-hidden="true">
