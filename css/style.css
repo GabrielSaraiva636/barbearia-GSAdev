@@ -1015,21 +1015,24 @@ textarea {
   }
 
   .nav-menu {
+    display: none;
     position: fixed;
     top: 0;
-    right: -100vw;
+    right: 0;
     height: 100vh;
     width: 280px;
     padding: 100px 24px 24px;
     flex-direction: column;
     align-items: flex-start;
     background: rgba(10, 10, 14, 0.98);
-    transition: right 0.35s ease;
+    transition: transform 0.35s ease;
+    transform: translateX(100%);
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.4);
   }
 
   .nav-menu.is-open {
-    right: 0;
+    display: flex;
+    transform: translateX(0);
   }
 
   .nav-toggle {
