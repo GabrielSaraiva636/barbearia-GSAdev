@@ -136,7 +136,7 @@
     ? bookingForm.querySelector("[data-notes]")
     : null;
 
-  const openModal = (service) => {
+  const openModal = (service, triggerEl) => {
     if (!bookingModal || !modalBackdrop) return;
     if (serviceOptions.length) {
       serviceOptions.forEach((opt) => {
@@ -154,6 +154,24 @@
     modalBackdrop.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
     updateSchedule();
+
+    const isMobile = window.matchMedia("(max-width: 600px)").matches;
+    if (isMobile && triggerEl) {
+      requestAnimationFrame(() => {
+        const rect = triggerEl.getBoundingClientRect();
+        const modalRect = bookingModal.getBoundingClientRect();
+        const modalHeight = modalRect.height || 0;
+        const viewportH = window.innerHeight;
+        let top = rect.top - modalHeight - 12;
+        if (top < 16) top = 16;
+        if (top > viewportH - modalHeight - 16) {
+          top = Math.max(16, viewportH - modalHeight - 16);
+        }
+        bookingModal.style.top = `${top}px`;
+        bookingModal.style.left = "50%";
+        bookingModal.style.transform = "translateX(-50%)";
+      });
+    }
   };
 
   const closeModal = () => {
@@ -163,6 +181,9 @@
     bookingModal.setAttribute("aria-hidden", "true");
     modalBackdrop.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
+    bookingModal.style.top = "";
+    bookingModal.style.left = "";
+    bookingModal.style.transform = "";
     if (notesWrapper) {
       notesWrapper.classList.remove("is-open");
     }
@@ -175,7 +196,7 @@
   document.querySelectorAll("[data-appointment]").forEach((btn) => {
     btn.addEventListener("click", (event) => {
       event.preventDefault();
-      openModal(btn.dataset.service || "");
+      openModal(btn.dataset.service || "", btn);
     });
   });
 
