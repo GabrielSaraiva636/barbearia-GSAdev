@@ -32,6 +32,23 @@
     return `${parts[2]}/${parts[1]}/${parts[0]}`;
   }
 
+  function timeToMinutes(value) {
+    if (!value) return null;
+    const parts = String(value).split(":");
+    if (parts.length !== 2) return null;
+    return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+  }
+
+  function minutesToTime(total) {
+    const hours = String(Math.floor(total / 60)).padStart(2, "0");
+    const minutes = String(total % 60).padStart(2, "0");
+    return `${hours}:${minutes}`;
+  }
+
+  function roundUpToStep(total, step) {
+    return Math.ceil(total / step) * step;
+  }
+
   function buildWhatsAppLink({
     service,
     name,
@@ -102,7 +119,7 @@
     ? bookingForm.querySelector('input[name="date"]')
     : null;
   const bookingTime = bookingForm
-    ? bookingForm.querySelector('input[name="time"]')
+    ? bookingForm.querySelector('#bookingTime')
     : null;
   const scheduleHint = bookingForm
     ? bookingForm.querySelector("[data-schedule-hint]")
@@ -218,50 +235,63 @@
     6: { open: "09:00", close: "18:00" },
   };
 
-  const updateSchedule = () => {
+    const updateSchedule = () => {
     if (!bookingDate || !bookingTime) return;
     const today = new Date();
     const todayIso = today.toISOString().split("T")[0];
     bookingDate.min = todayIso;
     const value = bookingDate.value;
+
+    bookingTime.innerHTML = '<option value="">Selecione o horário</option>';
+    bookingTime.disabled = true;
+
     if (!value) {
-      bookingTime.removeAttribute("min");
-      bookingTime.removeAttribute("max");
-      bookingTime.disabled = true;
       if (scheduleHint) scheduleHint.textContent = "Selecione a data.";
       return;
     }
     if (value < todayIso) {
       bookingDate.value = "";
-      bookingTime.removeAttribute("min");
-      bookingTime.removeAttribute("max");
-      bookingTime.disabled = true;
       if (scheduleHint) scheduleHint.textContent = "Selecione a data.";
       return;
     }
+
+    const day = new Date(`${value}T00:00:00`).getDay();
+    const slot = schedule[day];
+    if (!slot) {
+      if (scheduleHint) scheduleHint.textContent = "Sem atendimento neste dia.";
+      return;
+    }
+
+    const openMinutes = timeToMinutes(slot.open);
+    const closeMinutes = timeToMinutes(slot.close);
+    if (openMinutes === null || closeMinutes === null) {
+      return;
+    }
+
+    let startMinutes = openMinutes;
     if (value === todayIso) {
       const now = new Date();
       const currentMinutes = now.getHours() * 60 + now.getMinutes();
       const bufferMinutes = 30;
-      const minMinutes = parseInt(bookingTime.min.split(":")[0], 10) * 60 + parseInt(bookingTime.min.split(":")[1], 10);
-      const effectiveMin = Math.max(currentMinutes + bufferMinutes, minMinutes);
-      const hours = String(Math.floor(effectiveMin / 60)).padStart(2, "0");
-      const minutes = String(effectiveMin % 60).padStart(2, "0");
-      bookingTime.min = `${hours}:${minutes}`;
+      startMinutes = Math.max(openMinutes, currentMinutes + bufferMinutes);
     }
-    const day = new Date(`${value}T00:00:00`).getDay();
-    const slot = schedule[day];
-    if (!slot) {
-      bookingTime.value = "";
-      bookingTime.disabled = true;
-      if (scheduleHint) {
-        scheduleHint.textContent = "Sem atendimento neste dia.";
-      }
+
+    const step = 15;
+    startMinutes = roundUpToStep(startMinutes, step);
+
+    if (startMinutes > closeMinutes) {
+      if (scheduleHint) scheduleHint.textContent = "Sem horários disponíveis.";
       return;
     }
+
+    for (let t = startMinutes; t <= closeMinutes; t += step) {
+      const option = document.createElement("option");
+      option.value = minutesToTime(t);
+      option.textContent = minutesToTime(t);
+      bookingTime.appendChild(option);
+    }
+
     bookingTime.disabled = false;
-    bookingTime.min = slot.open;
-    bookingTime.max = slot.close;
     if (scheduleHint) {
       scheduleHint.textContent = `Atendimento: ${slot.open}–${slot.close}`;
     }
