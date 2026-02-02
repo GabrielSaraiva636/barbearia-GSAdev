@@ -220,6 +220,9 @@
 
   const updateSchedule = () => {
     if (!bookingDate || !bookingTime) return;
+    const today = new Date();
+    const todayIso = today.toISOString().split("T")[0];
+    bookingDate.min = todayIso;
     const value = bookingDate.value;
     if (!value) {
       bookingTime.removeAttribute("min");
@@ -227,6 +230,24 @@
       bookingTime.disabled = true;
       if (scheduleHint) scheduleHint.textContent = "Selecione a data.";
       return;
+    }
+    if (value < todayIso) {
+      bookingDate.value = "";
+      bookingTime.removeAttribute("min");
+      bookingTime.removeAttribute("max");
+      bookingTime.disabled = true;
+      if (scheduleHint) scheduleHint.textContent = "Selecione a data.";
+      return;
+    }
+    if (value === todayIso) {
+      const now = new Date();
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      const bufferMinutes = 30;
+      const minMinutes = parseInt(bookingTime.min.split(":")[0], 10) * 60 + parseInt(bookingTime.min.split(":")[1], 10);
+      const effectiveMin = Math.max(currentMinutes + bufferMinutes, minMinutes);
+      const hours = String(Math.floor(effectiveMin / 60)).padStart(2, "0");
+      const minutes = String(effectiveMin % 60).padStart(2, "0");
+      bookingTime.min = `${hours}:${minutes}`;
     }
     const day = new Date(`${value}T00:00:00`).getDay();
     const slot = schedule[day];
