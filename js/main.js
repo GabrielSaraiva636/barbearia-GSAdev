@@ -168,8 +168,8 @@
           top = Math.max(16, viewportH - modalHeight - 16);
         }
         bookingModal.style.top = `${top}px`;
-        bookingModal.style.left = "50%";
-        bookingModal.style.transform = "translateX(-50%)";
+        bookingModal.style.left = "12px";
+        bookingModal.style.transform = "none";
       });
     }
   };
