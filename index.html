@@ -622,6 +622,14 @@
       aria-hidden="true"
     >
       <div class="modal-header">
+        <button
+          class="modal-back"
+          type="button"
+          aria-label="Voltar"
+          data-modal-close
+        >
+          ←
+        </button>
         <div>
           <h2 id="bookingTitle">Agendar horário</h2>
           <p>Preencha os dados e confirme no WhatsApp.</p>
@@ -736,21 +744,33 @@
             <small>O pagamento será feito na barbearia.</small>
           </label>
         </div>
-        <label class="modal-notes">
-          Informações complementares (opcional)
-          <textarea
-            name="notes"
-            rows="3"
-            maxlength="255"
-            placeholder="Observações..."
-          ></textarea>
-          <span class="char-count" data-char-count>0/255</span>
-        </label>
-        <div class="modal-actions">
-          <button class="btn btn-outline" type="button" data-modal-close>
-            Cancelar
+        <div class="modal-notes" data-notes>
+          <button
+            class="notes-toggle"
+            type="button"
+            data-notes-toggle
+            aria-expanded="false"
+          >
+            Adicionar observações
           </button>
-          <button class="btn btn-primary" type="submit">Confirmar</button>
+          <label class="notes-field">
+            Informações complementares (opcional)
+            <textarea
+              name="notes"
+              rows="3"
+              maxlength="255"
+              placeholder="Observações..."
+            ></textarea>
+            <span class="char-count" data-char-count>0/255</span>
+          </label>
+        </div>
+        <div class="modal-footer-bar">
+          <div class="modal-actions">
+            <button class="btn btn-outline" type="button" data-modal-close>
+              Cancelar
+            </button>
+            <button class="btn btn-primary" type="submit">Confirmar</button>
+          </div>
         </div>
       </form>
     </div>

@@ -129,6 +129,12 @@
   const charCount = bookingForm
     ? bookingForm.querySelector("[data-char-count]")
     : null;
+  const notesToggle = bookingForm
+    ? bookingForm.querySelector("[data-notes-toggle]")
+    : null;
+  const notesWrapper = bookingForm
+    ? bookingForm.querySelector("[data-notes]")
+    : null;
 
   const openModal = (service) => {
     if (!bookingModal || !modalBackdrop) return;
@@ -157,6 +163,13 @@
     bookingModal.setAttribute("aria-hidden", "true");
     modalBackdrop.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
+    if (notesWrapper) {
+      notesWrapper.classList.remove("is-open");
+    }
+    if (notesToggle) {
+      notesToggle.setAttribute("aria-expanded", "false");
+      notesToggle.textContent = "Adicionar observações";
+    }
   };
 
   document.querySelectorAll("[data-appointment]").forEach((btn) => {
@@ -255,6 +268,16 @@
     };
     bookingNotes.addEventListener("input", updateCount);
     updateCount();
+  }
+
+  if (notesToggle && notesWrapper) {
+    notesToggle.addEventListener("click", () => {
+      const isOpen = notesWrapper.classList.toggle("is-open");
+      notesToggle.setAttribute("aria-expanded", String(isOpen));
+      notesToggle.textContent = isOpen
+        ? "Ocultar observações"
+        : "Adicionar observações";
+    });
   }
 
   if (bookingForm) {

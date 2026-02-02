@@ -619,6 +619,27 @@ textarea {
   margin-bottom: 14px;
 }
 
+.modal-back {
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #4b4b58;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modal-back:hover {
+  background: rgba(212, 175, 55, 0.18);
+  color: #1b1b1f;
+}
+
 .modal-header > div {
   max-width: 70%;
 }
@@ -856,6 +877,31 @@ textarea {
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+.notes-toggle {
+  width: 100%;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  color: #1b1b1f;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.notes-field {
+  display: grid;
+  gap: 6px;
+}
+
+.modal-footer-bar {
+  position: sticky;
+  bottom: 0;
+  margin-top: 6px;
+  padding-top: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f6f4f0 45%);
+}
+
 .char-count {
   text-align: right;
   font-size: 0.8rem;
@@ -1023,13 +1069,16 @@ textarea {
     width: 100vw;
     max-height: 100vh;
     height: 100vh;
+    top: 0;
+    left: 0;
+    transform: none;
     padding: 14px 14px 12px;
     border-radius: 0;
   }
 
   .modal-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 8px;
     padding-bottom: 10px;
     margin-bottom: 12px;
@@ -1037,6 +1086,7 @@ textarea {
 
   .modal-header > div {
     max-width: 100%;
+    text-align: center;
   }
 
   .modal-header h2 {
@@ -1045,6 +1095,14 @@ textarea {
 
   .modal-header p {
     font-size: 0.82rem;
+  }
+
+  .modal-back {
+    align-self: flex-start;
+  }
+
+  .modal-close {
+    display: none;
   }
 
   .modal-grid {
@@ -1113,6 +1171,29 @@ textarea {
   .booking-modal small,
   .schedule-hint {
     display: none;
+  }
+
+  .modal-notes {
+    margin-bottom: 6px;
+  }
+
+  .modal-notes .notes-field {
+    display: none;
+  }
+
+  .modal-notes.is-open .notes-field {
+    display: grid;
+  }
+
+  .modal-notes textarea {
+    height: 64px;
+  }
+
+  .modal-footer-bar {
+    position: sticky;
+    bottom: 0;
+    padding-top: 8px;
+    background: #f6f4f0;
   }
 }
 
